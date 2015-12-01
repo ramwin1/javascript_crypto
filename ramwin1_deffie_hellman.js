@@ -1,10 +1,10 @@
 password = 'password'
-p = 82793;
-g = 32767;
-ga = 15673;
+p = 421542432643;
+g = 542432643;
+ga = 177885731141;
 
 b = Math.round(Math.random()*p);
-
+b= 192458139446;
 gb = power(g, b, p);
 gab = power(ga,b,p);
 gab_md5 = hex_md5(gab.toString());
@@ -24,15 +24,15 @@ function bigint_multiply(a,b,p) {
         return a%p;
     }
 }
-// 求介乘
+// 求阶乘
 function power(y,d,n){
     if (d>=2){
         x = power(y,(d-d%2)/2,n)
         if (d%2==1){
-            return (x*x*y)%n
+            return ( bigint_multiply(bigint_multiply(x,x,n),y,n) )%n
         }
         else {
-            return (x*x)%n
+            return ( bigint_multiply(x,x,n) )%n
         }
     }
     return y%n
@@ -89,5 +89,6 @@ function chr_to_hex(character){
     }
     else { return tmp }
 }
-console.log(bigint_multiply(5555555555,555555555,1000000000));
+console.log(bigint_multiply(421542432643,421542432643,100000000000));
+console.log(gab)
 console.log(gb)
